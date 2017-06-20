@@ -1,20 +1,16 @@
 /* Start Fonts from Google Fonts */
 /*Google Fonts*/
-
 @import url('https://fonts.googleapis.com/css?family=Arapey|Cantarell|Comfortaa|Khand|Russo+One|Ubuntu');
-
 
 /*End Fonts*/
 
 
 /* Start Body */
-
 body {
-  background: #EEE;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #444;
+
   text-align: center;
   font: 16px;
 }
@@ -22,14 +18,14 @@ body {
 /* End Body */
 
 
-
-/*tooltip Box*/
+/* Tooltip Box */
 .con-tooltip {
-
   position: relative;
-  background: #F2D1C9;
+  background: #599a68;
   
+  color: #ffffff;
   border-radius: 9px;
+  border-width: 100px;
   padding: 0 20px;
   margin: 10px;
   
@@ -37,10 +33,12 @@ body {
   
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-
+  box-shadow: 2px 2px 5px 0px rgba(56, 54, 54, 0.86);
+  /* box-shadow: 5px 5px 10px 0px rgba(56, 54, 54, 0.86); */  
 }
 
-/*tooltip */
+
+/* Tooltip */
 .tooltip {
   visibility: hidden;
   z-index: 1;
@@ -48,26 +46,24 @@ body {
   
   width: 100%;
   padding: 0px 20px;
+  border-radius: 9px;
 
-  background: #333;
-  color: #E086D3;
+  background: #599a68;
+  color: #ffffff;
+  font-size: 14px;
   
   position: absolute;
   top:-140%;
-  left: -25%;
-  
-
-  border-radius: 9px;
-  font: 16px;
+  left: -25%;  
 
   transform: translateY(9px);
   transition: all 0.3s ease-in-out;
   
-  box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);
+  /* box-shadow: 0 0 3px rgba(56, 54, 54, 0.86); */
 }
 
 
-/* tooltip  after*/
+/* Tooltip Arrow */
 .tooltip::after {
   content: " ";
   width: 0;
@@ -75,43 +71,54 @@ body {
   
   border-style: solid;
   border-width: 12px 12.5px 0 12.5px;
-  border-color: #333 transparent transparent transparent;
+  border-color: #599a68 transparent transparent transparent;
 
   position: absolute;
   left: 40%;
-
 }
 
-.con-tooltip:hover .tooltip{
+.con-tooltip:hover .tooltip {
   visibility: visible;
   transform: translateY(-10px);
   opacity: 1;
   transition: .3s linear;
-  animation: odsoky 1s ease-in-out infinite  alternate;
-
+  animation: bounce 1s ease-in-out infinite alternate;
 }
-@keyframes odsoky {
-  0%{
+
+@keyframes bounce {
+  0% {
     transform: translateY(6px);	
   }
 
-  100%{
+  100% {
     transform: translateY(1px);	
   }
-
 }
 
-/*hover ToolTip*/
-.left:hover {transform: translateX(-6px); }
-.top:hover {transform: translateY(-6px);  }
-.bottom:hover {transform: translateY(6px);}
-.right:hover {transform: translateX(6px); }
+/* Hover Tooltip */
+.left:hover { 
+  transform: translateX(-3px); 
+  box-shadow: 7px 4px 8px -4px rgba(56, 54, 54, 0.86);
+}
+
+.top:hover { 
+  transform: translateY(-6px);
+  box-shadow: 6px 10px 8px -4px rgba(56, 54, 54, 0.86);
+}
+
+.bottom:hover {
+  transform: translateY(6px);
+  box-shadow: 0px 0px 8px -4px rgba(56, 54, 54, 0.86);
+}
+
+.right:hover {
+  transform: translateX(7px);
+  box-shadow: -7px 4px 8px -4px rgba(56, 54, 54, 0.86);
+}
 
 
-
-/*left*/
-
-.left .tooltip{ top:-20%; left:-210%; }
+/* Left */
+.left .tooltip { top:-20%; left:-210%; }
 
 .left .tooltip::after{
   top:40%;
@@ -119,11 +126,7 @@ body {
   transform: rotate(-90deg);
 }
 
-
-
-
-/*bottom*/
-
+/* Bottom */
 .bottom .tooltip { top:115%; left:-20%; }
 
 .bottom .tooltip::after{
@@ -132,10 +135,7 @@ body {
   transform: rotate(180deg);
 }
 
-
-
-/*right*/
-
+/* Right */
 .right .tooltip { top:-20%; left:115%; }
 
 .right .tooltip::after{
@@ -144,12 +144,13 @@ body {
   transform: rotate(90deg);
 }
 
+/*
 h3 {
     background: #333;
     color: #E086D3;
     padding: 10px 20px;
     border-radius: 56px;
     width: 8em;
-    margin: 20% auto 1% auto;
-  
+    margin: 20% auto 1% auto;  
 }
+*/
