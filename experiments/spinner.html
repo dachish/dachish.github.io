@@ -52,7 +52,11 @@
     }  
   }
   
-  .spinner-2:after {
+  .spinner-2 {
+    animation: spinner2 2s linear infinite;
+  }
+  
+  .spinner-2:before, .spinner-2:after {
     width: 20px;
     height: 20px;
     background: orangered;
@@ -60,17 +64,18 @@
     top: -10px;
     left: 50%;
     margin-left: -10px;
-    position: absolute;
-    animation: spinny2 1s linear infinite;
   }
   
   @keyframes spinny2 {
     0% {
-      transform: rotate(0deg);
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.5);
     }
     100% {
-      transform: rotate(360deg);
-    }  
+      transform: rotate(360deg) scale(1);
+    }   
   }
 
     
@@ -94,7 +99,7 @@
     
     <div id="wrapper">
       <section>
-          <h1>Spin Animation Tests</h1>          
+          <h3>Spin Animation Tests</h3>          
           <div class="spinner spinner-1"></div>
           <div class="spinner spinner-2"></div>
       </section>

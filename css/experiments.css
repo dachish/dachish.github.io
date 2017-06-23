@@ -48,8 +48,9 @@ body {
   border-radius: 9px;
 
   background: #599a68;
-  color: #ffffff;
+  color: #ffb44f;
   font-size: 14px;
+  font-weight:bold;
   
   position: absolute;
   top:-140%;

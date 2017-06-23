@@ -208,6 +208,12 @@ h2 {
   color: #ffffff;
 }
 
+h3 {
+  color: #ffb44f;
+  font-size: 2em;
+  font-weight: bold;
+}
+
 /* links */
 a {
   color: #6ab47b;
