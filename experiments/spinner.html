@@ -12,6 +12,7 @@
   </head>
 	
 <style>
+  /****** Spinner 1 ******/  
   .spinner {
     width: 100px;
     height: 100px;
@@ -39,19 +40,43 @@
     border-bottom-color: orangered;
     animation: spinny1 1s linear infinite;
   }
+  
+  .spinner-1:before {
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    border: 4px solid transparent;
+    border-top-color: #ffb44f;
+    border-bottom-color: #ffb44f;
+    animation: spinny2 1s linear infinite reverse;
+  }
     
   @keyframes spinny1 {
     0% {
-      transform: rotate(0deg) scale(1);
+      transform: rotate(0deg);
     }
     50% {
-      transform: rotate(180deg) scale(1.2);
+      transform: rotate(180deg);
     }
     100% {
-      transform: rotate(360deg) scale(1);
+      transform: rotate(360deg);
     }  
   }  
   
+  @keyframes spinny2 {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }  
+  }  
+  
+  
+  /****** Spinner 2 ******/  
   .spinner-2:before {
     width: 20px;
     height: 20px;
@@ -89,6 +114,8 @@
     border-top-color: red;
   }
   
+  
+  /****** Spinner 3 ******/  
   .spinner-3:after {
     width: 4px;
     height: 50px;
@@ -102,6 +129,8 @@
     animation: spinny2 2s linear infinite;
   }
   
+  
+  /****** Spinner 4 ******/  
   .spinner-4:before, .spinner-4:after {
     background: orangered;
     animation: pulse 3s linear infinite;
@@ -109,7 +138,7 @@
   }
   
   .spinner-4:after {
-    background: orangered;
+    background: green;
     animation: pulse 4s linear infinite;
   }
   
@@ -137,6 +166,7 @@
   }
   
   
+  /****** Spinner 5 ******/  
   .spinner-5 {
     height: 0px;
     width: 0px;
@@ -146,7 +176,7 @@
     display: block;
     height: 20px;
     width: 20px;
-    background: #ddd;
+    background: #red;
     border-radius: 50%;
     position: absolute;
     top: 0px;
@@ -154,25 +184,29 @@
   
   .spinner-5 span:nth-child(1) {
     left: -40px;
-    animation: bounce 1s ease-in-and-out infinite;
+    animation: bounce 1s ease-in-out infinite;
   }
   .spinner-5 span:nth-child(2) {
-    animation: bounce 1s ease-in-and-out .33s;
+    animation: bounce 1s ease-in-out 0.33s infinite;
   }
   .spinner-5 span:nth-child(3) {
     left: 40px;
-    animation: bounce 1s ease-in-and-out .66s;
+    animation: bounce 1s ease-in-out 0.66s infinite;
   }
   
   @keyframes bounce {
     0% {
       transform: translateY(0px);
+      background-color: orangered;
     }
     50% {
-      transform: translateY(-30px);
+      transform: translateY(-100px);
+      background-color: red;
     }
   }
 
+  
+  /****** Loader 1 ******/  
   .loader {
     width: 300px;
     height: 10px;
@@ -238,11 +272,6 @@
       left: 100%;
     }
   }
-  
-  
-  
-
-    
 </style>
   
   <body>
@@ -263,7 +292,7 @@
     
     <div id="wrapper">
       <section>
-          <h3>Spin Animation Tests</h3>          
+        <h3>Spin Animation Tests</h3>          
           <div class="spinner spinner-1"></div>
           <div class="spinner spinner-2"></div>
           <div class="spinner spinner-3"></div>
@@ -271,17 +300,18 @@
           <div class="spinner spinner-5">
             <span></span><span></span><span></span>
           </div>
-        </section>
-        <section>
-          <h3>Loader Test</h3>
+        <br><br>
+      </section>
+      <section>
+        <h3>Loader Test</h3>
           <div class="loader"></div>
-          <div class="cover"></div>
-        </section>
-      <footer>
+        <br><br><br><br>
+      </section>
+    <footer>
         <a href="https://twitter.com/nashnikos"><img src="/img/twitter-wrap.png" alt="Twitter Logo" class="social-icon"></a>
         <a href="http://facebook.com/"><img src="/img/facebook-wrap.png" alt="Facebook Logo" class="social-icon"></a>
         <p>&copy; 2017 Nick Chaney</p>
-      </footer>
+    </footer>
     </div>
   </body>
 </html>
