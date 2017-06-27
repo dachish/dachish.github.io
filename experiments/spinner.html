@@ -50,13 +50,9 @@
     100% {
       transform: rotate(360deg) scale(1);
     }  
-  }
+  }  
   
-  .spinner-2 {
-    animation: spinner2 2s linear infinite;
-  }
-  
-  .spinner-2:before, .spinner-2:after {
+  .spinner-2:before {
     width: 20px;
     height: 20px;
     background: orangered;
@@ -64,19 +60,187 @@
     top: -10px;
     left: 50%;
     margin-left: -10px;
+    transform-origin: center bottom;
+    animation: spinny2 1s linear infinite;
+  }
+  
+  .spinner-2:after {
+    width: 20px;
+    height: 20px;
+    background: orangered;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -10px;
+    transform-origin: bottom;
+    animation: spinny2 1s cubic-bezier(0, 0, .47, .52) infinite;
   }
   
   @keyframes spinny2 {
     0% {
-      transform: rotate(0deg) scale(1);
-    }
-    50% {
-      transform: rotate(180deg) scale(1.5);
+      transform: rotate(0deg)
     }
     100% {
-      transform: rotate(360deg) scale(1);
+      transform: rotate(360deg)
     }   
   }
+  
+  .spinner-3 {
+    border-top-color: red;
+  }
+  
+  .spinner-3:after {
+    width: 4px;
+    height: 50px;
+    background: orangered;
+    border-radius: 0px;
+    position: absolute;
+    top: -0px;
+    left: 50%;
+    margin-left -2px;
+    transform-origin: bottom center;
+    animation: spinny2 2s linear infinite;
+  }
+  
+  .spinner-4:before, .spinner-4:after {
+    background: orangered;
+    animation: pulse 3s linear infinite;
+    position: absolute;
+  }
+  
+  .spinner-4:after {
+    background: orangered;
+    animation: pulse 4s linear infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    25% {
+      transform: scale(1.5);
+      opacity: 1;
+    } 
+    50% {
+      transform: scale(1);
+      opacity: .5;
+    } 
+    75% {
+      transform: scale(1.75);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    } 
+  }
+  
+  
+  .spinner-5 {
+    height: 0px;
+    width: 0px;
+  }
+  
+  .spinner-5 span {
+    display: block;
+    height: 20px;
+    width: 20px;
+    background: #ddd;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+  }
+  
+  .spinner-5 span:nth-child(1) {
+    left: -40px;
+    animation: bounce 1s ease-in-and-out infinite;
+  }
+  .spinner-5 span:nth-child(2) {
+    animation: bounce 1s ease-in-and-out .33s;
+  }
+  .spinner-5 span:nth-child(3) {
+    left: 40px;
+    animation: bounce 1s ease-in-and-out .66s;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+  }
+
+  .loader {
+    width: 300px;
+    height: 10px;
+    margin: 0 auto;
+    border-top: 8px dotted darkgrey;
+    background: none;
+    display: inline-block;
+    position: relative;
+  }
+    
+  .loader:before, .loader:after {
+    content: '';
+    display: block;
+    height: 0px;
+    width: 0px;
+    border: 30px solid orangered;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    position: absolute;
+    top: 50%;
+    margin-top: -13%;
+    animation: moveChomp 5s linear infinite, topChomp 1s ease-in-out infinite reverse;
+  }
+  
+  .loader:after {
+    //left: 80px;
+    border-color: orangered;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    animation: moveChomp 5s linear infinite, bottomChomp 1s ease-in-out infinite;
+  }
+  
+  @keyframes topChomp {
+    0%, 100% {
+      transform: rotate(-20deg);
+    }
+    50% {
+      transform: rotate(42deg);
+    }
+  }
+
+  @keyframes bottomChomp {
+    0%, 100% {
+      transform: rotate(10deg);
+    }
+    50% {
+      transform: rotate(-45deg);
+    }
+  }
+  
+  @keyframes moveChomp {
+    0%, 100% {
+      left: 0%;
+    }
+    0%, 49% {
+      transform:rotateY(0deg)
+    }
+    50%, 100% {
+      transform:rotateY(180deg)
+    }
+    50% {
+      left: 100%;
+    }
+  }
+  
+  
+  
 
     
 </style>
@@ -102,8 +266,17 @@
           <h3>Spin Animation Tests</h3>          
           <div class="spinner spinner-1"></div>
           <div class="spinner spinner-2"></div>
-      </section>
-      
+          <div class="spinner spinner-3"></div>
+          <div class="spinner spinner-4"></div>
+          <div class="spinner spinner-5">
+            <span></span><span></span><span></span>
+          </div>
+        </section>
+        <section>
+          <h3>Loader Test</h3>
+          <div class="loader"></div>
+          <div class="cover"></div>
+        </section>
       <footer>
         <a href="https://twitter.com/nashnikos"><img src="/img/twitter-wrap.png" alt="Twitter Logo" class="social-icon"></a>
         <a href="http://facebook.com/"><img src="/img/facebook-wrap.png" alt="Facebook Logo" class="social-icon"></a>
